@@ -3,6 +3,7 @@ package com.avisow.designpatterns.creationalpatterns.abstractfactory;
 /// <summary>
 /// MainApp startup class for Structural
 /// Abstract Factory Design Pattern.
+///     create an instance of several family classes
 /// </summary>
 public class App 
 {

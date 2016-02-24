@@ -11,7 +11,6 @@ public class App
         // Create adapter and place a request
         Target target = new Adapter();
         target.request();
-        System.out.println( "Hello World!" );
     }
 }
 

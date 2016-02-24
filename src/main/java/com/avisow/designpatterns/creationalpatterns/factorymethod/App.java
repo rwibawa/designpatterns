@@ -1,9 +1,10 @@
 package com.avisow.designpatterns.creationalpatterns.factorymethod;
 
-/**
- * Hello world!
- *
- */
+/// <summary>
+/// MainApp startup class for Structural
+/// Factory Method Design Pattern.
+///     Create an instance of several derived methods
+/// </summary>
 public class App 
 {
         /// <summary>

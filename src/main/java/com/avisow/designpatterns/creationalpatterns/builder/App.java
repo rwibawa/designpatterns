@@ -6,6 +6,7 @@ import java.util.List;
 /// <summary>
 /// MainApp startup class for Structural
 /// Builder Design Pattern.
+///     separate obj construction from its representation
 /// </summary>
 public class App {
     public static void main(String[] args) {

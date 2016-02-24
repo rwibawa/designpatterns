@@ -3,6 +3,7 @@ package com.avisow.designpatterns.creationalpatterns.prototype;
 /// <summary>
 /// MainApp startup class for Structural
 /// Prototype Design Pattern.
+///     A fully initialized instance to be copied or cloned
 /// </summary>
 public class App 
 {
