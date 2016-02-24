@@ -1,7 +1,5 @@
 package com.avisow.designpatterns.creationalpatterns.factorymethod;
 
-import java.io.IOException;
-
 /**
  * Hello world!
  *
@@ -22,17 +20,17 @@ public class App
             // Iterate over creators and create products
             for (Creator creator : creators)
             {
-                Product product = creator.FactoryMethod();
+                Product product = creator.factoryMethod();
                 System.out.println("Created " +
                         product.getClass().toString());
             }
 
             // Wait for user
-            try {
-                System.in.read();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+//            try {
+//                System.in.read();
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
         }
     }
 
@@ -62,7 +60,7 @@ public class App
     /// </summary>
     abstract class Creator
     {
-        public abstract Product FactoryMethod();
+        public abstract Product factoryMethod();
     }
 
     /// <summary>
@@ -71,7 +69,7 @@ public class App
     class ConcreteCreatorA extends Creator
     {
         @Override
-        public Product FactoryMethod()
+        public Product factoryMethod()
         {
             return new ConcreteProductA();
         }
@@ -83,7 +81,7 @@ public class App
     class ConcreteCreatorB extends Creator
     {
         @Override
-        public Product FactoryMethod()
+        public Product factoryMethod()
         {
             return new ConcreteProductB();
         }
