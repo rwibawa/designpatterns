@@ -148,19 +148,255 @@ match interface of different classes.
 title: Adapter
 ---
 classDiagram
+    Client --> "target" Target
     Target: +request()
     Target <|-- Adapter
+    Adapter: -Adaptee adaptee
     Adapter: +request() "adaptee.specificRequest()"
     Adapter --> "adaptee" Adaptee
     Adaptee: +specificRequest()
 ```
+#### 1.1. When to use Adapter Pattern
+The Adapter pattern should be used when:
+* There is an existing class, and its interface does not match the one you need.
+* You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don’t necessarily
+have compatible interfaces.
+* There are several existing subclasses to be use, but it’s impractical to adapt their interface by subclassing every one. An object
+adapter can adapt the interface of its parent class.
 
 ### 2. Bridge
+separate an object & interface from implementation.
+
+The Bridge Pattern’s intent is to decouple an abstraction from its implementation so that the two can vary independently. It puts
+the abstraction and implementation into two different class hierarchies so that both can be extended independently.
+```mermaid
+---
+title: Bridge
+---
+classDiagram
+    class Abstraction {
+        -Implementor implementor
+        +operation() "implementor.operation()"
+    }
+    
+    
+    Abstraction <|-- RefinedAbstraction
+    RefinedAbstraction: +operation()
+    
+    class Implementor {
+        <<abstract>>
+        +operation()
+    }
+
+    Abstraction *-- Implementor : "implementor"
+    
+    Implementor <|-- ConcreteImplementorA
+    Implementor <|-- ConcreteImplementorB
+    
+    ConcreteImplementorA: +operation()
+    ConcreteImplementorB: +operation()
+```
+
+#### 2.1 Use of Bridge Pattern
+You should use the Bridge Pattern when:
+* You want to avoid a permanent binding between an abstraction and its implementation. This might be the case, for example,
+when the implementation must be selected or switched at run-time.
+* Both the abstractions and their implementations should be extensible by sub-classing. In this case, the Bridge pattern lets you
+combine the different abstractions and implementations and extend them independently.
+* Changes in the implementation of an abstraction should have no impact on clients; that is, their code should not have to be
+recompiled.
+* You want to share an implementation among multiple objects (perhaps using reference counting), and this fact should be hidden
+from the client.
+
 ### 3. Composite
+a tree structure of simple and composite objects. In Composite Pattern, elements with children are called as Nodes, and elements without
+children are called as Leafs.
+
+example: XML parser, file system, HTML representation, a hierarchy.
+```mermaid
+---
+title: Composite
+---
+classDiagram
+    Client --> Component
+    class Component {
+        <<abstract>>
+        +Component()
+        +add(Component component)
+        +remove(Component component)
+        +getChildren()
+        +operation()
+    }
+    
+    Component <|-- Leaf
+    Component <|-- Composite
+    Component --* Composite : children
+    
+    Leaf: +operation()
+    class Composite {
+        -List~Component~ children
+        +add(Component component)
+        +remove(Component component)
+        +getChildren()
+        +operation()
+    }
+```
+
 ### 4. Decorator
+add responsibilities to an object dynamically.
+```mermaid
+---
+title: Decorator
+---
+classDiagram
+    class Component {
+        <<abstract>>
+        +operation()
+    }
+    
+    Component <|-- ConcreteComponent
+    ConcreteComponent: +operation
+    
+    Component <|-- Decorator
+    class Decorator {
+        <<abstract>>
+        -Component component
+        +SetComponent(Component component)
+        +operation() "component.operation()"
+    }
+    
+    Decorator <|-- ConcreteDecoratorA
+    Decorator <|-- ConcreteDecoratorB
+    
+    ConcreteDecoratorA: +operation()
+    
+    class ConcreteDecoratorB {
+        +operation()
+        +addedBehavior()
+    }
+    
+```
+
+#### 4.1 When to use the Decorator Design Pattern
+Use the Decorator pattern in the following cases:
+* To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects.
+* For responsibilities that can be withdrawn.
+* When extension by sub-classing is impractical. Sometimes a large number of independent extensions are possible and would
+produce an explosion of subclasses to support every combination. Or a class definition may be hidden or otherwise unavailable
+for sub-classing
+
+#### 4.2 Example:
+* Component: Pizza (properties: size, price)
+* ConcreteComponent: VeggiePizza, MeatLoverPizza
+* Decorator: Topping
+* ConcreteDecorator: Cheese, Chicken, Pineapple, Onion
+
 ### 5. Facade
+a single class that represents an entire subsystem.
+example: a mortgage application.
+
+```mermaid
+---
+title: Facade
+---
+classDiagram
+    class Facade {
+        -SubSystemOne one
+        -SubSystemTwo two
+        -SubSystemThree three
+        -SubSystemFour four
+        +Facade()
+        +MethodA()
+        +MethodB()
+    }
+
+    Facade --> SubSystemOne
+    Facade --> SubSystemTwo
+    Facade --> SubSystemThree
+    Facade --> SubSystemFour
+    
+    SubSystemOne: +MethodOne
+    SubSystemTwo: +MethodTwo
+    SubSystemThree: +MethodThree
+    SubSystemFour: +MethodFour
+```
+  Note:
+  a Facade same as an Adapter can wrap multiple classes, but a facade is used to an interface to simplify the use
+of the complex interface, whereas, an adapter is used to convert the interface to an interface the client expects.
+
 ### 6. Flyweight
+a fine-grained instance used for efficient sharing.
+```mermaid
+---
+title: Flyweight
+---
+classDiagram
+    note for FlyweightFactory "getFlyweight(int key)\n{\n  if flyweight[key]\n    return\n  else\n    create\n}"
+    class FlyweightFactory {
+        -HashTable~Flyweight~ flyweights
+        +getFlyweight(int key)
+    }
+    
+    FlyweightFactory *.. Flyweight : flyweights
+    
+    class Flyweight {
+        <<abstract>>
+        +operation(int extrinsicState)
+    }
+    
+    Flyweight <|-- ConcreteFlyweight
+    Flyweight <|-- UnsharedConcreteFlyweight
+    
+    class ConcreteFlyweight {
+        -allState
+        +operation(int extrinsicState)
+    }
+    
+    class UnsharedConcreteFlyweight {
+        -intrinsicState
+        +operation(int extrinsicState)
+    }
+    
+    Client --> ConcreteFlyweight
+    Client --> UnsharedConcreteFlyweight
+    Client --> FlyweightFactory
+```
+
+#### 6.1 When to use the Flyweight Pattern
+The Flyweight pattern’s effectiveness depends heavily on how and where it’s used. Apply the Flyweight pattern when all of the
+following are true:
+* An application uses a large number of objects.
+* Storage costs are high because of the sheer quantity of objects.
+* Most object state can be made extrinsic.
+* Many groups of objects may be replaced by relatively few shared objects once extrinsic state is removed.
+* The application doesn’t depend on object identity. Since flyweight objects may be shared, identity tests will return true for
+conceptually distinct objects.
+
 ### 7. Proxy
+an object representing another object, which may be remote, expensive
+to create or in need of being secured.
+```mermaid
+---
+title: Proxy
+---
+classDiagram
+    Client --> Subject
+    
+    class Subject {
+        <<interface>>
+        +request()
+    }
+    
+    Subject <|-- RealSubject
+    Subject <|-- Proxy
+    
+    RealSubject: +request()
+    RealSubject <-- Proxy : realSubject
+    
+    note for Proxy "request() { realSubject.request() }"
+    Proxy: -Subject realSubject
+    Proxy: +request()
+```
 
 ## 3. Behavioral Patterns.
 Behavioral patterns are concerned with algorithms and the assignment of responsibilities between objects.

@@ -17,7 +17,7 @@ public class App
 /// <summary>
 /// The 'Target' class
 /// </summary>
-class Target {
+abstract class Target {
 
     public void request() {
         System.out.println("Called Target.request()");
@@ -28,13 +28,13 @@ class Target {
 /// The 'Adapter' class
 /// </summary>
 class Adapter extends Target {
-    private Adaptee _adaptee = new Adaptee();
+    private final Adaptee adaptee = new Adaptee();
 
     @Override
     public void request() {
         // Possibly do some other work
         //  and then call SpecificRequest
-        _adaptee.specificRequest();
+        adaptee.specificRequest();
     }
 }
 

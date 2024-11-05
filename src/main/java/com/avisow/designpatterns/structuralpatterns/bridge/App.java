@@ -24,7 +24,7 @@ public class App
 /// <summary>
 /// The 'Abstraction' class
 /// </summary>
-class Abstraction {
+abstract class Abstraction {
     protected Implementor implementor;
 
     public void setImplementor(Implementor implementor) {
@@ -50,7 +50,7 @@ abstract class Implementor
 class RefinedAbstraction extends Abstraction {
     @Override
     public void operation() {
-        implementor.operation();
+        super.operation();
     }
 }
 
