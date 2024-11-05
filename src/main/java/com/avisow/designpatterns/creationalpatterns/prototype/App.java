@@ -10,23 +10,12 @@ public class App
     public static void main( String[] args )
     {
         // Create two instances and clone each
-
         ConcretePrototype1 p1 = new ConcretePrototype1("I");
-        ConcretePrototype1 c1 = null;
-        try {
-            c1 = (ConcretePrototype1)p1.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        ConcretePrototype1 c1 = (ConcretePrototype1) p1.clone();
         System.out.println("Cloned: " + c1.getId());
 
         ConcretePrototype2 p2 = new ConcretePrototype2("II");
-        ConcretePrototype2 c2 = null;
-        try {
-            c2 = (ConcretePrototype2)p2.clone();
-        } catch (CloneNotSupportedException e) {
-            e.printStackTrace();
-        }
+        ConcretePrototype2 c2 = (ConcretePrototype2) p2.clone();
         System.out.println("Cloned: " + c2.getId());
     }
 }
@@ -34,23 +23,32 @@ public class App
 /// <summary>
 /// The 'Prototype' abstract class
 /// </summary>
-abstract class Prototype
+abstract class Prototype implements Cloneable
 {
-    private String _id;
+    private final String id;
 
     // Constructor
     public Prototype(String id)
     {
-        this._id = id;
+        this.id = id;
     }
 
     // Gets id
     public String getId()
     {
-        return _id;
+        return id;
     }
 
-//    public abstract Prototype clone() throws CloneNotSupportedException;
+    @Override
+    public Prototype clone() {
+        try {
+            final Prototype clone = (Prototype) super.clone();
+            // TODO: copy mutable state here, so the clone can't change the internals of the original
+            return clone;
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }
 
 /// <summary>
@@ -61,12 +59,6 @@ class ConcretePrototype1 extends Prototype {
     public ConcretePrototype1(String id) {
         super(id);
     }
-
-    // Returns a shallow copy
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
-    }
 }
 
 /// <summary>
@@ -76,11 +68,5 @@ class ConcretePrototype2 extends Prototype {
     // Constructor
     public ConcretePrototype2(String id) {
         super(id);
-    }
-
-    // Returns a shallow copy
-    @Override
-    protected Object clone() throws CloneNotSupportedException {
-        return super.clone();
     }
 }

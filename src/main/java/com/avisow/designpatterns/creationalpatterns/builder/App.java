@@ -54,21 +54,21 @@ abstract class Builder
 /// The 'ConcreteBuilder1' class
 /// </summary>
 class ConcreteBuilder1 extends Builder {
-    private Product _product = new Product();
+    private final Product product = new Product();
 
     @Override
     public void buildPartA() {
-        _product.Add("PartA");
+        product.Add("PartA");
     }
 
     @Override
     public void buildPartB() {
-        _product.Add("PartB");
+        product.Add("PartB");
     }
 
     @Override
     public Product getResult() {
-        return _product;
+        return product;
     }
 }
 
@@ -76,21 +76,21 @@ class ConcreteBuilder1 extends Builder {
 /// The 'ConcreteBuilder2' class
 /// </summary>
 class ConcreteBuilder2 extends Builder {
-    private Product _product = new Product();
+    private final Product product = new Product();
 
     @Override
     public void buildPartA() {
-        _product.Add("PartX");
+        product.Add("PartX");
     }
 
     @Override
     public void buildPartB() {
-        _product.Add("PartY");
+        product.Add("PartY");
     }
 
     @Override
     public Product getResult() {
-        return _product;
+        return product;
     }
 }
 
@@ -98,15 +98,15 @@ class ConcreteBuilder2 extends Builder {
 /// The 'Product' class
 /// </summary>
 class Product {
-    private List<String> _parts = new ArrayList<String>();
+    private final List<String> parts = new ArrayList<String>();
 
     public void Add(String part) {
-        _parts.add(part);
+        parts.add(part);
     }
 
     public void Show() {
         System.out.println("\nProduct Parts -------");
-        for (String part : _parts)
+        for (String part : parts)
             System.out.println(part);
     }
 }

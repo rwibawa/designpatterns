@@ -4,17 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d04ceda-b72f-4166-8c90-254ea50b1acb" name="Changes" comment="* project clean-up.&#10;* add .gitignore.">
-      <change afterPath="$PROJECT_DIR$/.idea/markdown.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/flyweight/App2.java" afterDir="false" />
+    <list default="true" id="0d04ceda-b72f-4166-8c90-254ea50b1acb" name="Changes" comment="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern.">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/singleton/SingletonEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/adapter/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/adapter/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/bridge/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/bridge/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/composite/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/composite/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/decorator/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/decorator/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/facade/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/facade/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/flyweight/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/flyweight/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/builder/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/builder/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/prototype/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/prototype/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/singleton/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/singleton/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,11 +63,16 @@
     "ACTIVE_CLOUD_PROJECT_NUMBER": "190250776566",
     "Application.App.executor": "Run",
     "Application.App2.executor": "Run",
+    "Application.com.avisow.designpatterns.creationalpatterns.abstractfactory.App.executor": "Run",
+    "Application.com.avisow.designpatterns.creationalpatterns.builder.App.executor": "Run",
+    "Application.com.avisow.designpatterns.creationalpatterns.factorymethod.App.executor": "Run",
+    "Application.com.avisow.designpatterns.creationalpatterns.singleton.App.executor": "Run",
     "Application.com.avisow.designpatterns.structuralpatterns.adapter.App.executor": "Run",
     "Application.com.avisow.designpatterns.structuralpatterns.bridge.App.executor": "Run",
     "Application.com.avisow.designpatterns.structuralpatterns.composite.App.executor": "Run",
     "Application.com.avisow.designpatterns.structuralpatterns.decorator.App.executor": "Debug",
     "Application.com.avisow.designpatterns.structuralpatterns.facade.App.executor": "Run",
+    "Application.com.avisow.designpatterns.structuralpatterns.proxy.App.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "com.google.cloudcode.ide_session_index": "20241101_0008",
@@ -86,13 +87,13 @@
       <recent name="com.avisow.designpatterns.creationalpatterns.singleton" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.avisow.designpatterns.structuralpatterns.proxy.App">
+  <component name="RunManager" selected="Application.com.avisow.designpatterns.creationalpatterns.singleton.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.structuralpatterns.flyweight.App" />
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.prototype.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.structuralpatterns.flyweight.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.prototype.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -100,12 +101,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="App2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.structuralpatterns.flyweight.App2" />
+    <configuration name="com.avisow.designpatterns.creationalpatterns.abstractfactory.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.abstractfactory.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.structuralpatterns.flyweight.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.abstractfactory.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -113,12 +114,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.avisow.designpatterns.structuralpatterns.bridge.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.structuralpatterns.bridge.App" />
+    <configuration name="com.avisow.designpatterns.creationalpatterns.builder.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.builder.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.structuralpatterns.bridge.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.builder.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,12 +127,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.avisow.designpatterns.structuralpatterns.decorator.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.structuralpatterns.decorator.App" />
+    <configuration name="com.avisow.designpatterns.creationalpatterns.factorymethod.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.factorymethod.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.structuralpatterns.decorator.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.factorymethod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -139,12 +140,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.avisow.designpatterns.structuralpatterns.proxy.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.structuralpatterns.proxy.App" />
+    <configuration name="com.avisow.designpatterns.creationalpatterns.singleton.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.singleton.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.structuralpatterns.proxy.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.singleton.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -154,11 +155,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.avisow.designpatterns.structuralpatterns.proxy.App" />
-        <item itemvalue="Application.App2" />
+        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.singleton.App" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.com.avisow.designpatterns.structuralpatterns.decorator.App" />
-        <item itemvalue="Application.com.avisow.designpatterns.structuralpatterns.bridge.App" />
+        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.builder.App" />
+        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.abstractfactory.App" />
+        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.factorymethod.App" />
       </list>
     </recent_temporary>
   </component>
@@ -203,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730772994156</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern.">
+      <option name="closed" value="true" />
+      <created>1730824438003</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1730824438003</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -211,7 +220,8 @@
     <MESSAGE value="* Implement the Singleton patterns." />
     <MESSAGE value="* project clean-up." />
     <MESSAGE value="* project clean-up.&#10;* add .gitignore." />
-    <option name="LAST_COMMIT_MESSAGE" value="* project clean-up.&#10;* add .gitignore." />
+    <MESSAGE value="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -220,6 +230,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/structuralpatterns/decorator/App.java</url>
           <line>20</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/prototype/App.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

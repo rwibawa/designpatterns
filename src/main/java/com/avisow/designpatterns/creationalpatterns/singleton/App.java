@@ -11,10 +11,12 @@ public class App
     public static void main( String[] args )
     {
         Singleton singleton = Singleton.getInstance();
-        System.out.println( "Singleton UID:" + ObjectStreamClass.lookup(singleton.getClass()).getSerialVersionUID());
+        System.out.println( "Singleton UID: " + ObjectStreamClass.lookup(singleton.getClass()).getSerialVersionUID());
 
         SingletonLazyDoubleCheck singleton2 = SingletonLazyDoubleCheck.getInstance();
         singleton2.setName("Ryan");
-        System.out.println("Singleton2 Name:" + singleton2.getName());
+        System.out.println("Singleton2 Name: " + singleton2.getName());
+
+        System.out.println("Singleton3 Enum: " + SingletonEnum.SingleEnum.SINGLETON_ENUM);
     }
 }

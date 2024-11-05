@@ -5,7 +5,7 @@ Design Patterns in Java.
 ## 1. Creational Patterns.
 Creational design patterns are used to design the instantiation process of objects.
 
-### 1. Abstract Factory
+### 1. Abstract Factory (Factory of Factories)
 create a family of related objects without specifying their concrete classes.
 ```mermaid
 ---
@@ -52,8 +52,17 @@ classDiagram
     ConcreteFac2 ..> B2
 ```
 
+#### 1.1 When to use the Abstract Factory Design Pattern
+* A system should be independent of how its products are created, composed, and represented.
+* A system should be configured with one of multiple families of products.
+* A family of related product objects is designed to be used together, and you need to enforce this constraint.
+* You want to provide a class library of products, and you want to reveal just their interfaces, not their implementations
+
 ### 2. Builder
-separate object construction from its representation.
+separate object construction from its representation (to make the object smaller).
+
+Example: sign-up form.
+
 ```mermaid
 ---
 title: Builder
@@ -61,23 +70,38 @@ title: Builder
 classDiagram
     class Builder {
         <<abstract>>
-        +buildPart()
+        +buildPart() Product
     }
-    
+
+    note for Director "construct() { foreach: builder.buildPart() }"
     Director o-- Builder : builder
     Director : +construct()
     
     Builder <|-- ConcreteBuilder
     class ConcreteBuilder {
         +buildPart()
-        +getResult()
+        +getResult() Product
     }
     
     ConcreteBuilder --> Product
 ```
 
+#### 2.1 When to use the Builder Pattern
+* The algorithm for creating a complex object should be independent of the parts that make up the object and how they’re
+assembled.
+* The construction process must allow different representations for the object that’s constructed.
+
+#### 2.2 Builder Pattern in JDK
+* java.lang.StringBuilder#append() (unsynchronized)
+* java.lang.StringBuffer#append() (synchronized)
+
 ### 3. Factory Method
 create an instance of several derived methods.
+
+In other words, it defines an interface for creating an object, but let subclasses decide which
+class to instantiate.
+
+Example: XML parsers for each specific XML format.
 ```mermaid
 ---
 title: Factory Method
@@ -85,16 +109,31 @@ title: Factory Method
 classDiagram
     class Creator {
         <<abstract>>
-        +factoryMethod()* "product : factoryMethod()"
+        +factoryMethod() Product*
         +operation()
     }
     
-    Creator <|-- ConcreteCreator
-    ConcreteCreator : +factoryMethod() "return new concreteProduct"
+    Creator <|-- ConcreteCreatorA
+    Creator <|-- ConcreteCreatorB
     
-    ConcreteCreator ..> ConcreteProduct
-    ConcreteProduct --|> Product
+    note for ConcreteCreatorA "factoryMethod() { return new concreteProductA }"
+    ConcreteCreatorA : +factoryMethod() Product
+    
+    ConcreteCreatorB : +factoryMethod() Product
+    
+    class Product {
+        <<abstract>>
+    }
+
+    ConcreteProductA --|> Product
+    ConcreteProductB --|> Product
 ```
+
+#### 3.1 When to use the Factory Method Pattern
+* A class can’t anticipate the class of objects it must create.
+* A class wants its subclasses to specify the objects it creates.
+* Classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper
+subclass is the delegate.
 
 ### 4. Prototype
 a fully initialized object is copied into another object.
@@ -123,6 +162,18 @@ classDiagram
     Client : +operation()    
 ```
 
+#### 4.1 When to use the Prototype Design Pattern
+Use the Prototype pattern when a system should be independent of how its products are created, composed, and represented; and
+* When the classes to instantiate are specified at run-time, for example, by dynamic loading; or
+* To avoid building a class hierarchy of factories that parallels the class hierarchy of products; or
+* When instances of a class can have one of only a few different combinations of state. It may be more convenient to install a
+corresponding number of prototypes and clone them rather than instantiating the class manually, each time with the appropriate
+state.
+
+#### 4.2 Prototype Pattern in JDK
+* java.lang.Object#clone()
+* java.lang.Cloneable
+
 ### 5. Singleton
 ensure a class has only one instance, and provide a global point of access to it.
 ```mermaid
@@ -133,35 +184,63 @@ classDiagram
     class Singleton {
         -Singleton instance
         -Singleton()
-        +Instance() Singleton
+        +getInstance() Singleton
     }
 ```
 
+Apart from this, there are some other ways to break the singleton pattern.
+* If the class is Serializable.
+* If it’s Clonable.
+* It can be broken by Reflection.
+* And also if, the class is loaded by multiple class loaders.
+
+There is one simple and easier way of creating a singleton class. As of JDK 1.5, you
+can create a singleton class using enums.
+```java
+public class SingletonEnum {
+
+  public enum SingleEnum{
+    SINGLETON_ENUM;
+  }
+}
+```
+
+* You will get a compile time error when you attempt to explicitly instantiate an Enum object.
+* As Enum gets loaded statically, it is thread-safe.
+* The clone method in Enum is final which ensures that enum constants never get cloned.
+* Enum is inherently serializable, the serialization mechanism ensures that duplicate instances are never created as a result of deserialization. Instantiation
+using reflection is also prohibited.
+* These things ensure that no instance of an enum exists beyond the one defined by the enum
+constants.
 
 ## 2. Structural Patterns.
 Structural patterns are concerned with how classes and objects are composed to form larger structures.
 
 ### 1. Adapter
 match interface of different classes.
+
+Example: an adapter for an API.
 ```mermaid
 ---
 title: Adapter
 ---
 classDiagram
     Client --> "target" Target
+    
     Target: +request()
     Target <|-- Adapter
+    
+    note for Adapter "request() { adaptee.specificRequest() }"
     Adapter: -Adaptee adaptee
-    Adapter: +request() "adaptee.specificRequest()"
+    Adapter: +request()
     Adapter --> "adaptee" Adaptee
     Adaptee: +specificRequest()
 ```
 #### 1.1. When to use Adapter Pattern
-The Adapter pattern should be used when:
 * There is an existing class, and its interface does not match the one you need.
 * You want to create a reusable class that cooperates with unrelated or unforeseen classes, that is, classes that don’t necessarily
 have compatible interfaces.
-* There are several existing subclasses to be use, but it’s impractical to adapt their interface by subclassing every one. An object
+* There are several existing subclasses to be used, but it’s impractical to adapt their interface by subclassing every one. An object
 adapter can adapt the interface of its parent class.
 
 ### 2. Bridge
@@ -198,7 +277,6 @@ classDiagram
 ```
 
 #### 2.1 Use of Bridge Pattern
-You should use the Bridge Pattern when:
 * You want to avoid a permanent binding between an abstraction and its implementation. This might be the case, for example,
 when the implementation must be selected or switched at run-time.
 * Both the abstractions and their implementations should be extensible by sub-classing. In this case, the Bridge pattern lets you
@@ -258,11 +336,13 @@ classDiagram
     ConcreteComponent: +operation
     
     Component <|-- Decorator
+    
+    note for Decorator "operation() { component.operation() }"
     class Decorator {
         <<abstract>>
         -Component component
         +SetComponent(Component component)
-        +operation() "component.operation()"
+        +operation()
     }
     
     Decorator <|-- ConcreteDecoratorA
@@ -278,7 +358,6 @@ classDiagram
 ```
 
 #### 4.1 When to use the Decorator Design Pattern
-Use the Decorator pattern in the following cases:
 * To add responsibilities to individual objects dynamically and transparently, that is, without affecting other objects.
 * For responsibilities that can be withdrawn.
 * When extension by sub-classing is impractical. Sometimes a large number of independent extensions are possible and would
@@ -363,8 +442,7 @@ classDiagram
 ```
 
 #### 6.1 When to use the Flyweight Pattern
-The Flyweight pattern’s effectiveness depends heavily on how and where it’s used. Apply the Flyweight pattern when all of the
-following are true:
+Apply the Flyweight pattern when all the following are true:
 * An application uses a large number of objects.
 * Storage costs are high because of the sheer quantity of objects.
 * Most object state can be made extrinsic.
@@ -411,3 +489,5 @@ Behavioral object patterns use object composition rather than inheritance.
 ### 7. Observer
 ### 8. State
 ### 9. Strategy
+### 10. Template Method
+### 11. Visitor
