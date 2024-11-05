@@ -1,11 +1,40 @@
 # Java-Design-Patterns
 Design Patterns in Java.
 
+- [1. Creational Patterns](#creational)
+  - [1. Abstract Factory (Factory of Factories) ](#AbstractFactory)
+  - [2. Builder ](#Builder)
+  - [3. Factory Method ](#FactoryMethod)
+  - [4. Prototype ](#Prototype)
+  - [5. Singleton ](#Singleton)
+- [2. Structural Patterns](#structural)
+  - [1. Adapter ](#Adapter)
+  - [2. Bridge ](#Bridge)
+  - [3. Composite ](#Composite)
+  - [4. Decorator ](#Decorator)
+  - [5. Facade ](#Facade)
+  - [6. Flyweight ](#Flyweight)
+  - [7. Proxy ](#Proxy)
+- [3. Behavioral Patterns. ](#3-behavioral-patterns-)
+  - [1. Chain of Responsibility ](#ChainOfResponsibility)
+  - [2. Command ](#Command)
+  - [3. Interpreter ](#Interpreter)
+  - [4. Iterator ](#Iterator)
+  - [5. Mediator ](#Mediator)
+  - [6. Memento ](#Memento)
+  - [7. Observer ](#Observer)
+  - [8. State ](#State)
+  - [9. Strategy ](#Strategy)
+  - [10. Template Method ](#TemplateMethod)
+  - [11. Visitor ](#Visitor)
 
-## 1. Creational Patterns.
+## 1. Creational Patterns. <a name="creational"></a>
 Creational design patterns are used to design the instantiation process of objects.
 
-### 1. Abstract Factory (Factory of Factories)
+<details>
+   <summary>Show</summary>
+
+### 1. Abstract Factory (Factory of Factories) <a name="AbstractFactory"></a>
 create a family of related objects without specifying their concrete classes.
 ```mermaid
 ---
@@ -58,7 +87,7 @@ classDiagram
 * A family of related product objects is designed to be used together, and you need to enforce this constraint.
 * You want to provide a class library of products, and you want to reveal just their interfaces, not their implementations
 
-### 2. Builder
+### 2. Builder <a name="Builder"></a>
 separate object construction from its representation (to make the object smaller).
 
 Example: sign-up form.
@@ -95,7 +124,7 @@ assembled.
 * java.lang.StringBuilder#append() (unsynchronized)
 * java.lang.StringBuffer#append() (synchronized)
 
-### 3. Factory Method
+### 3. Factory Method <a name="FactoryMethod"></a>
 create an instance of several derived methods.
 
 In other words, it defines an interface for creating an object, but let subclasses decide which
@@ -135,7 +164,7 @@ classDiagram
 * Classes delegate responsibility to one of several helper subclasses, and you want to localize the knowledge of which helper
 subclass is the delegate.
 
-### 4. Prototype
+### 4. Prototype <a name="Prototype"></a>
 a fully initialized object is copied into another object.
 ```mermaid
 ---
@@ -174,7 +203,7 @@ state.
 * java.lang.Object#clone()
 * java.lang.Cloneable
 
-### 5. Singleton
+### 5. Singleton <a name="Singleton"></a>
 ensure a class has only one instance, and provide a global point of access to it.
 ```mermaid
 ---
@@ -213,10 +242,15 @@ using reflection is also prohibited.
 * These things ensure that no instance of an enum exists beyond the one defined by the enum
 constants.
 
-## 2. Structural Patterns.
+</details>
+
+## 2. Structural Patterns. <a name="structural"></a>
 Structural patterns are concerned with how classes and objects are composed to form larger structures.
 
-### 1. Adapter
+<details>
+   <summary>Show</summary>
+
+### 1. Adapter <a name="Adapter"></a>
 match interface of different classes.
 
 Example: an adapter for an API.
@@ -243,7 +277,7 @@ have compatible interfaces.
 * There are several existing subclasses to be used, but it’s impractical to adapt their interface by subclassing every one. An object
 adapter can adapt the interface of its parent class.
 
-### 2. Bridge
+### 2. Bridge <a name="Bridge"></a>
 separate an object & interface from implementation.
 
 The Bridge Pattern’s intent is to decouple an abstraction from its implementation so that the two can vary independently. It puts
@@ -286,7 +320,7 @@ recompiled.
 * You want to share an implementation among multiple objects (perhaps using reference counting), and this fact should be hidden
 from the client.
 
-### 3. Composite
+### 3. Composite <a name="Composite"></a>
 a tree structure of simple and composite objects. In Composite Pattern, elements with children are called as Nodes, and elements without
 children are called as Leafs.
 
@@ -320,7 +354,7 @@ classDiagram
     }
 ```
 
-### 4. Decorator
+### 4. Decorator <a name="Decorator"></a>
 add responsibilities to an object dynamically.
 ```mermaid
 ---
@@ -370,7 +404,7 @@ for sub-classing
 * Decorator: Topping
 * ConcreteDecorator: Cheese, Chicken, Pineapple, Onion
 
-### 5. Facade
+### 5. Facade <a name="Facade"></a>
 a single class that represents an entire subsystem.
 example: a mortgage application.
 
@@ -403,7 +437,7 @@ classDiagram
   a Facade same as an Adapter can wrap multiple classes, but a facade is used to an interface to simplify the use
 of the complex interface, whereas, an adapter is used to convert the interface to an interface the client expects.
 
-### 6. Flyweight
+### 6. Flyweight <a name="Flyweight"></a>
 a fine-grained instance used for efficient sharing.
 ```mermaid
 ---
@@ -450,7 +484,7 @@ Apply the Flyweight pattern when all the following are true:
 * The application doesn’t depend on object identity. Since flyweight objects may be shared, identity tests will return true for
 conceptually distinct objects.
 
-### 7. Proxy
+### 7. Proxy <a name="Proxy"></a>
 an object representing another object, which may be remote, expensive
 to create or in need of being secured.
 ```mermaid
@@ -476,18 +510,25 @@ classDiagram
     Proxy: +request()
 ```
 
-## 3. Behavioral Patterns.
+</details>
+
+## 3. Behavioral Patterns. <a name="behavioral"></a>
 Behavioral patterns are concerned with algorithms and the assignment of responsibilities between objects.
 Behavioral object patterns use object composition rather than inheritance.
 
-### 1. Chain of Responsibility
-### 2. Command
-### 3. Interpreter
-### 4. Iterator
-### 5. Mediator
-### 6. Memento
-### 7. Observer
-### 8. State
-### 9. Strategy
-### 10. Template Method
-### 11. Visitor
+<details>
+   <summary>Show</summary>
+
+### 1. Chain of Responsibility <a name="ChainOfResponsibility"></a>
+### 2. Command <a name="Command"></a>
+### 3. Interpreter <a name="Interpreter"></a>
+### 4. Iterator <a name="Iterator"></a>
+### 5. Mediator <a name="Mediator"></a>
+### 6. Memento <a name="Memento"></a>
+### 7. Observer <a name="Observer"></a>
+### 8. State <a name="State"></a>
+### 9. Strategy <a name="Strategy"></a>
+### 10. Template Method <a name="TemplateMethod"></a>
+### 11. Visitor <a name="Visitor"></a>
+
+</details>

@@ -4,13 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d04ceda-b72f-4166-8c90-254ea50b1acb" name="Changes" comment="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern.">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/singleton/SingletonEnum.java" afterDir="false" />
+    <list default="true" id="0d04ceda-b72f-4166-8c90-254ea50b1acb" name="Changes" comment="Completed the Creational Design Patterns:&#10;* add Builder pattern.&#10;* add Prototype pattern.&#10;* add Composite pattern.&#10;* add some other Singleton patterns.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/builder/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/builder/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/prototype/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/prototype/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/singleton/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/singleton/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -212,7 +208,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730824438003</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Completed the Creational Design Patterns:&#10;* add Builder pattern.&#10;* add Prototype pattern.&#10;* add Composite pattern.&#10;* add some other Singleton patterns.">
+      <option name="closed" value="true" />
+      <created>1730837641559</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1730837641559</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -221,7 +225,8 @@
     <MESSAGE value="* project clean-up." />
     <MESSAGE value="* project clean-up.&#10;* add .gitignore." />
     <MESSAGE value="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern." />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern." />
+    <MESSAGE value="Completed the Creational Design Patterns:&#10;* add Builder pattern.&#10;* add Prototype pattern.&#10;* add Composite pattern.&#10;* add some other Singleton patterns." />
+    <option name="LAST_COMMIT_MESSAGE" value="Completed the Creational Design Patterns:&#10;* add Builder pattern.&#10;* add Prototype pattern.&#10;* add Composite pattern.&#10;* add some other Singleton patterns." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
