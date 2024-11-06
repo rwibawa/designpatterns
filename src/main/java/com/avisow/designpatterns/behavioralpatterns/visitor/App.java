@@ -29,11 +29,17 @@ public class App
     }
 }
 
-class ConcreteVisitorB extends Visitor {
+abstract class Visitor
+{
+    public abstract void visitConcreteElementA(ConcreteElementA concreteElementA);
+    public abstract void visitConcreteElementB(ConcreteElementB concreteElementB);
+}
+
+class ConcreteVisitorA extends Visitor {
     @Override
     public void visitConcreteElementA(ConcreteElementA concreteElementA) {
-        System.out.println(concreteElementA.getClass().toString() +
-                " visited by " + this.getClass().toString());
+        System.out.println(concreteElementA.getClass() +
+                " visited by " + this.getClass());
     }
 
     @Override
@@ -43,17 +49,34 @@ class ConcreteVisitorB extends Visitor {
     }
 }
 
-class ConcreteVisitorA extends Visitor {
+class ConcreteVisitorB extends Visitor {
     @Override
     public void visitConcreteElementA(ConcreteElementA concreteElementA) {
-        System.out.println(concreteElementA.getClass().toString() +
-                " visited by " + this.getClass().toString());
+        System.out.println(concreteElementA.getClass() +
+                " visited by " + this.getClass());
     }
 
     @Override
     public void visitConcreteElementB(ConcreteElementB concreteElementB) {
-        System.out.println(concreteElementB.getClass().toString() +
-                " visited by " + this.getClass().toString());
+        System.out.println(concreteElementB.getClass() +
+                " visited by " + this.getClass());
+    }
+}
+
+
+abstract class Element
+{
+    public abstract void accept(Visitor visitor);
+}
+
+class ConcreteElementA extends Element {
+    @Override
+    public void accept(Visitor visitor) {
+        visitor.visitConcreteElementA(this);
+    }
+
+    public void operationA() {
+
     }
 }
 
@@ -68,25 +91,9 @@ class ConcreteElementB extends Element {
     }
 }
 
-class ConcreteElementA extends Element {
-    @Override
-    public void accept(Visitor visitor) {
-        visitor.visitConcreteElementA(this);
-    }
-
-    public void operationA() {
-
-    }
-}
-
-abstract class Element
-{
-    public abstract void accept(Visitor visitor);
-}
-
 class ObjectStructure
 {
-    private List<Element> elementList = new ArrayList<Element>();
+    private final List<Element> elementList = new ArrayList<>();
 
     public void attach(Element element)
     {
@@ -105,10 +112,4 @@ class ObjectStructure
             element.accept(visitor);
         }
     }
-}
-
-abstract class Visitor
-{
-    public abstract void visitConcreteElementA(ConcreteElementA concreteElementA);
-    public abstract void visitConcreteElementB(ConcreteElementB concreteElementB);
 }

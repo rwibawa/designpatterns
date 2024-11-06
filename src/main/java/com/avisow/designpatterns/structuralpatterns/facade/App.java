@@ -65,31 +65,31 @@ class SubSystemFour
 /// </summary>
 class Facade
 {
-    private SubSystemOne _one;
-    private SubSystemTwo _two;
-    private SubSystemThree _three;
-    private SubSystemFour _four;
+    private final SubSystemOne one;
+    private final SubSystemTwo two;
+    private final SubSystemThree three;
+    private final SubSystemFour four;
 
     public Facade()
     {
-        _one = new SubSystemOne();
-        _two = new SubSystemTwo();
-        _three = new SubSystemThree();
-        _four = new SubSystemFour();
+        one = new SubSystemOne();
+        two = new SubSystemTwo();
+        three = new SubSystemThree();
+        four = new SubSystemFour();
     }
 
     public void methodA()
     {
         System.out.println("\nmethodA() ---- ");
-        _one.methodOne();
-        _two.methodTwo();
-        _four.methodFour();
+        one.methodOne();
+        two.methodTwo();
+        four.methodFour();
     }
 
     public void methodB()
     {
         System.out.println("\nmethodB() ---- ");
-        _two.methodTwo();
-        _three.methodThree();
+        two.methodTwo();
+        three.methodThree();
     }
 }

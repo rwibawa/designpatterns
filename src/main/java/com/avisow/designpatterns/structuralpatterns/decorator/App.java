@@ -10,9 +10,9 @@ public class App
     public static void main( String[] args )
     {
         // Create ConcreteComponent and two Decorators
-        ConcreteComponent c = new ConcreteComponent();
-        ConcreteDecoratorA d1 = new ConcreteDecoratorA();
-        ConcreteDecoratorB d2 = new ConcreteDecoratorB();
+        Component c = new ConcreteComponent();
+        Decorator d1 = new ConcreteDecoratorA();
+        Decorator d2 = new ConcreteDecoratorB();
 
         // Link decorators
         d1.setComponent(c);
@@ -75,10 +75,11 @@ class ConcreteDecoratorB extends Decorator {
     @Override
     public void operation() {
         super.operation();
-        AddedBehavior();
+        addedBehavior();
         System.out.println("ConcreteDecoratorB.operation()");
     }
 
-    void AddedBehavior() {
+    void addedBehavior() {
+        System.out.println("ConcreteDecoratorB.addedBehavior()");
     }
 }

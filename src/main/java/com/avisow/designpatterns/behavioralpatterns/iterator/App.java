@@ -1,6 +1,7 @@
 package com.avisow.designpatterns.behavioralpatterns.iterator;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /// <summary>
 /// MainApp startup class for Structural
@@ -11,18 +12,18 @@ public class App
 {
     public static void main( String[] args )
     {
-        ConcreteAggregate a = new ConcreteAggregate();
+        ConcreteAggregate<String> a = new ConcreteAggregate<>();
         a.add(0, "Item A");
         a.add(0, "Item B");
         a.add(0, "Item C");
         a.add(0, "Item D");
 
-        // Create Iterator and provide aggregate
-        ConcreteIterator i = new ConcreteIterator(a);
+        // Create Iterator
+        Iterator<String> i = a.createIterator();
 
         System.out.println("Iterating over collection:");
 
-        Object item = i.first();
+        String item = i.first();
         while (item != null)
         {
             System.out.println(item);
@@ -34,72 +35,72 @@ public class App
 /// <summary>
 /// The 'Aggregate' abstract class
 /// </summary>
-abstract class Aggregate
+abstract class Aggregate<T>
 {
-    public abstract Iterator CreateIterator();
+    public abstract Iterator<T> createIterator();
 }
 
 /// <summary>
 /// The 'ConcreteAggregate' class
 /// </summary>
-class ConcreteAggregate extends Aggregate {
-    private ArrayList _items = new ArrayList();
+class ConcreteAggregate<T> extends Aggregate<T> {
+    private final List<T> items = new ArrayList<>();
 
     @Override
-    public Iterator CreateIterator() {
-        return new ConcreteIterator(this);
+    public Iterator<T> createIterator() {
+        return new ConcreteIterator<T>(this);
     }
 
     // Gets item count
     public int size() {
-        return _items.size();
+        return items.size();
     }
 
     // Indexer
-    public Object get(int index) {
-        return _items.get(index);
+    public T get(int index) {
+        return items.get(index);
     }
 
-    public void add(int index, Object value) {
-        _items.add(index, value);
+    public void add(int index, T value) {
+        items.add(index, value);
     }
 }
 
 /// <summary>
-/// The 'Iterator' abstract class
+/// The 'Iterator' interface
 /// </summary>
-abstract class Iterator
+interface Iterator<T>
 {
-    public abstract Object first();
-    public abstract Object next();
-    public abstract boolean isDone();
-    public abstract Object currentItem();
+    T first();
+    T next();
+    boolean isDone();
+    T currentItem();
 }
 
 /// <summary>
 /// The 'ConcreteIterator' class
 /// </summary>
-class ConcreteIterator extends Iterator {
-    private ConcreteAggregate _aggregate;
-    private int _current = 0;
+class ConcreteIterator<T> implements Iterator<T> {
+    private final ConcreteAggregate<T> aggregate;
+    private int current = 0;
 
     // Constructor
-    public ConcreteIterator(ConcreteAggregate aggregate) {
-        this._aggregate = aggregate;
+    public ConcreteIterator(ConcreteAggregate<T> aggregate) {
+        this.aggregate = aggregate;
     }
 
     // Gets first iteration item
     @Override
-    public Object first() {
-        return _aggregate.get(0);
+    public T first() {
+        return aggregate.get(0);
     }
 
     // Gets next iteration item
     @Override
-    public Object next() {
-        Object ret = null;
-        if (_current < _aggregate.size() - 1) {
-            ret = _aggregate.get(++_current);
+    public T next() {
+        T ret = null;
+        if (current < aggregate.size() - 1) {
+            ret = aggregate.get(++current);
         }
 
         return ret;
@@ -107,13 +108,13 @@ class ConcreteIterator extends Iterator {
 
     // Gets current iteration item
     @Override
-    public Object currentItem() {
-        return _aggregate.get(_current);
+    public T currentItem() {
+        return aggregate.get(current);
     }
 
     // Gets whether iterations are complete
     @Override
     public boolean isDone() {
-        return _current >= _aggregate.size();
+        return current >= aggregate.size();
     }
 }

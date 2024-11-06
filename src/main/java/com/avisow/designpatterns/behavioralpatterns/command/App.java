@@ -40,7 +40,7 @@ abstract class Command
 /// The 'ConcreteCommand' class
 /// </summary>
 class ConcreteCommand extends Command {
-    // Constructor
+
     public ConcreteCommand(Receiver receiver) {
         super(receiver);
     }
@@ -67,15 +67,15 @@ class Receiver
 /// </summary>
 class Invoker
 {
-    private Command _command;
+    private Command command;
 
     public void setCommand(Command command)
     {
-        this._command = command;
+        this.command = command;
     }
 
     public void executeCommand()
     {
-        _command.execute();
+        command.execute();
     }
 }

@@ -1,6 +1,6 @@
 package com.avisow.designpatterns.structuralpatterns.flyweight;
 
-import java.util.Hashtable;
+import java.util.HashMap;
 
 /// <summary>
 /// MainApp startup class for Structural
@@ -38,7 +38,7 @@ public class App
 /// </summary>
 class FlyweightFactory
 {
-    private Hashtable flyweights = new Hashtable();
+    private final HashMap<String, Flyweight> flyweights = new HashMap<>();
 
     // Constructor
     public FlyweightFactory()
@@ -50,7 +50,7 @@ class FlyweightFactory
 
     public Flyweight getFlyweight(String key)
     {
-        return ((Flyweight)flyweights.get(key));
+        return flyweights.get(key);
     }
 }
 
@@ -59,7 +59,7 @@ class FlyweightFactory
 /// </summary>
 abstract class Flyweight
 {
-    public abstract void operation(int extrinsicstate);
+    public abstract void operation(int extrinsicState);
 }
 
 /// <summary>
@@ -67,8 +67,8 @@ abstract class Flyweight
 /// </summary>
 class ConcreteFlyweight extends Flyweight {
     @Override
-    public void operation(int extrinsicstate) {
-        System.out.println("ConcreteFlyweight: " + extrinsicstate);
+    public void operation(int extrinsicState) {
+        System.out.println("ConcreteFlyweight: " + extrinsicState);
     }
 }
 
@@ -77,7 +77,7 @@ class ConcreteFlyweight extends Flyweight {
 /// </summary>
 class UnsharedConcreteFlyweight extends Flyweight {
     @Override
-    public void operation(int extrinsicstate) {
-        System.out.println("UnsharedConcreteFlyweight: " + extrinsicstate);
+    public void operation(int extrinsicState) {
+        System.out.println("UnsharedConcreteFlyweight: " + extrinsicState);
     }
 }

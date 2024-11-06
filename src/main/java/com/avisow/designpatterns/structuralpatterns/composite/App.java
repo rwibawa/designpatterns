@@ -56,7 +56,7 @@ abstract class Component
 /// The 'Composite' class
 /// </summary>
 class Composite extends Component {
-    private List<Component> _children = new ArrayList<Component>();
+    private final List<Component> children = new ArrayList<Component>();
 
     // Constructor
     public Composite(String name) {
@@ -65,12 +65,12 @@ class Composite extends Component {
 
     @Override
     public void add(Component component) {
-        _children.add(component);
+        children.add(component);
     }
 
     @Override
     public void remove(Component component) {
-        _children.remove(component);
+        children.remove(component);
     }
 
     @Override
@@ -78,7 +78,7 @@ class Composite extends Component {
         System.out.println(new String(new char[depth]).replace("\0", "-") + name);
 
         // Recursively display child nodes
-        for (Component component : _children) {
+        for (Component component : children) {
             component.display(depth + 2);
         }
     }

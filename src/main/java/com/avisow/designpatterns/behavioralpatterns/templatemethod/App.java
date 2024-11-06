@@ -12,10 +12,10 @@ public class App
         // Template Method Pattern:
         // A skeleton of an algorithm and defer the steps in the sub-classes
 
-        AbstractClass a = new AbstractClassA();
+        AbstractClass a = new ConcreteClassA();
         a.templateMethod();
 
-        AbstractClass b = new AbstractClassB();
+        AbstractClass b = new ConcreteClassB();
         b.templateMethod();
     }
 }
@@ -33,26 +33,26 @@ abstract class AbstractClass
     protected abstract void primitiveOperation2();
 }
 
-class AbstractClassA extends AbstractClass {
+class ConcreteClassA extends AbstractClass {
     @Override
     protected void primitiveOperation1() {
-        System.out.println("AbstractClassA.primitiveOperation1()");
+        System.out.println("ConcreteClassA.primitiveOperation1()");
     }
 
     @Override
     protected void primitiveOperation2() {
-        System.out.println("AbstractClassA.primitiveOperation2()");
+        System.out.println("ConcreteClassA.primitiveOperation2()");
     }
 }
 
-class AbstractClassB extends AbstractClass {
+class ConcreteClassB extends AbstractClass {
     @Override
     protected void primitiveOperation1() {
-        System.out.println("AbstractClassB.primitiveOperation1()");
+        System.out.println("ConcreteClassB.primitiveOperation1()");
     }
 
     @Override
     protected void primitiveOperation2() {
-        System.out.println("AbstractClassB.primitiveOperation1()");
+        System.out.println("ConcreteClassB.primitiveOperation2()");
     }
 }

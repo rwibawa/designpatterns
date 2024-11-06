@@ -13,15 +13,21 @@ public class App
     public static void main( String[] args )
     {
         // Configure Observer pattern
-        ConcreteSubject s = new ConcreteSubject();
+        ConcreteSubject<String> s = new ConcreteSubject<>();
 
-        s.attach(new ConcreteObserver(s, "X"));
-        s.attach(new ConcreteObserver(s, "Y"));
-        s.attach(new ConcreteObserver(s, "Z"));
+        s.attach(new ConcreteObserver<>(s, "X"));
+        s.attach(new ConcreteObserver<>(s, "Y"));
+        s.attach(new ConcreteObserver<>(s, "Z"));
 
-        // Change subject and notify observers
-        s.set_subjectState("ABC");
-        s.notify_Change();
+        // Change subject state and notify observers
+        s.setSubjectState("ABC");
+        System.out.println();
+
+        s.setSubjectState("DEF");
+        System.out.println();
+
+        s.setSubjectState("GHI");
+        System.out.println();
     }
 }
 
@@ -30,21 +36,21 @@ public class App
 /// </summary>
 abstract class Subject
 {
-    private List<Observer> _observers = new ArrayList<Observer>();
+    private final List<Observer> observers = new ArrayList<>();
 
     public void attach(Observer observer)
     {
-        _observers.add(observer);
+        observers.add(observer);
     }
 
     public void detach(Observer observer)
     {
-        _observers.remove(observer);
+        observers.remove(observer);
     }
 
-    public void notify_Change()
+    public void notifyChange()
     {
-        for (Observer o : _observers)
+        for (Observer o : observers)
         {
             o.update();
         }
@@ -54,18 +60,18 @@ abstract class Subject
 /// <summary>
 /// The 'ConcreteSubject' class
 /// </summary>
-class ConcreteSubject extends Subject {
+class ConcreteSubject<T> extends Subject {
+    private T subjectState;
+
     // Gets or sets subject state
-    public String get_subjectState() {
-        return _subjectState;
+    public T getSubjectState() {
+        return subjectState;
     }
 
-    public void set_subjectState(String _subjectState) {
-        this._subjectState = _subjectState;
+    public void setSubjectState(T subjectState) {
+        this.subjectState = subjectState;
+        this.notifyChange();
     }
-
-    private String _subjectState;
-
 }
 
 /// <summary>
@@ -79,32 +85,22 @@ abstract class Observer
 /// <summary>
 /// The 'ConcreteObserver' class
 /// </summary>
-class ConcreteObserver extends Observer {
-    private String _name;
-    private String _observerState;
+class ConcreteObserver<T> extends Observer {
+    private final String name;
+    private T observerState;
 
-    // Gets or sets subject
-    public ConcreteSubject get_subject() {
-        return _subject;
-    }
-
-    public void set_subject(ConcreteSubject _subject) {
-        this._subject = _subject;
-    }
-
-    private ConcreteSubject _subject;
+    private final ConcreteSubject<T> subject;
 
     // Constructor
-    public ConcreteObserver(
-            ConcreteSubject subject, String name) {
-        this._subject = subject;
-        this._name = name;
+    public ConcreteObserver(ConcreteSubject<T> subject, String name) {
+        this.subject = subject;
+        this.name = name;
+        observerState = subject.getSubjectState();
     }
 
     @Override
     public void update() {
-        _observerState = _subject.get_subjectState();
-        System.out.println("Observer " + _name + "'s new state is " + _observerState);
+        observerState = subject.getSubjectState();
+        System.out.println("Observer " + name + "'s new state is " + observerState);
     }
-
 }

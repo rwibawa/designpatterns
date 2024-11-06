@@ -33,12 +33,14 @@ class ConcreteStateA extends State {
 class ConcreteStateB extends State {
     @Override
     public void handle(Context context) {
-        context.setState(new ConcreteStateB());
+        context.setState(new ConcreteStateA());
     }
 }
 
 class Context
 {
+    private State state;
+
     public State getState() {
         return state;
     }
@@ -48,11 +50,11 @@ class Context
         System.out.println("State=" + state.getClass().getName());
     }
 
-    private State state;
 
     public Context(State state)
     {
         this.state = state;
+        System.out.println("State=" + state.getClass().getName());
     }
 
     public void request()

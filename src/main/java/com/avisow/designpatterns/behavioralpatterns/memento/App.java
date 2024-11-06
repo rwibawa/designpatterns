@@ -9,79 +9,79 @@ public class App
 {
     public static void main( String[] args )
     {
-        Originator o = new Originator();
-        o.set_state("On");
+        Originator<String> o = new Originator<>();
+        o.setState("On");
 
         // Store internal state
-        Caretaker c = new Caretaker();
-        c.set_memento(o.createMemento());
+        Caretaker<String> c = new Caretaker<>();
+        c.setMemento(o.createMemento());
 
         // Continue changing originator
-        o.set_state("Off");
+        o.setState("Off");
 
         // Restore saved state
-        o.set_memento(c.get_memento());
+        o.setMemento(c.getMemento());
     }
 }
 
 /// <summary>
 /// The 'Originator' class
 /// </summary>
-class Originator {
+class Originator<T> {
     // Property
-    private String _state;
+    private T state;
 
-    public String get_state() {
-        return _state;
+    public T getState() {
+        return state;
     }
 
-    public void set_state(String _state) {
-        this._state = _state;
-        System.out.println("State = " + _state);
+    public void setState(T state) {
+        this.state = state;
+        System.out.println("State = " + state);
     }
 
     // Creates memento
-    public Memento createMemento() {
-        return (new Memento(_state));
+    public Memento<T> createMemento() {
+        return new Memento<T>(state);
     }
 
     // Restores original state
-    public void set_memento(Memento memento) {
+    public void setMemento(Memento<T> memento) {
         System.out.println("Restoring state...");
-        set_state(memento.get_state());
+        setState(memento.getState());
     }
 }
 
 /// <summary>
 /// The 'Memento' class
 /// </summary>
-class Memento {
-    private String _state;
+class Memento<T> {
+    private final T state;
 
     // Constructor
-    public Memento(String state) {
-        this._state = state;
+    public Memento(T state) {
+        this.state = state;
     }
 
     // Gets or sets state
-    public String get_state() {
-        return _state;
+    public T getState() {
+        return state;
     }
 }
 
 /// <summary>
 /// The 'Caretaker' class
 /// </summary>
-class Caretaker
+class Caretaker<T>
 {
+    private Memento<T> memento;
+
     // Gets or sets memento
-    public Memento get_memento() {
-        return _memento;
+    public Memento<T> getMemento() {
+        return memento;
     }
 
-    public void set_memento(Memento _memento) {
-        this._memento = _memento;
+    public void setMemento(Memento<T> memento) {
+        this.memento = memento;
     }
-
-    private Memento _memento;
 }

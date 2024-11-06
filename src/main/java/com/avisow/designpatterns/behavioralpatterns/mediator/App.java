@@ -34,23 +34,23 @@ abstract class Mediator
 /// The 'ConcreteMediator' class
 /// </summary>
 class ConcreteMediator extends Mediator {
-    private ConcreteColleague1 _colleague1;
-    private ConcreteColleague2 _colleague2;
+    private ConcreteColleague1 colleague1;
+    private ConcreteColleague2 colleague2;
 
     public void setColleague1(ConcreteColleague1 value) {
-        _colleague1 = value;
+        colleague1 = value;
     }
 
     public void setColleague2(ConcreteColleague2 value) {
-        _colleague2 = value;
+        colleague2 = value;
     }
 
     @Override
     public void send(String message, Colleague colleague) {
-        if (colleague == _colleague1) {
-            _colleague2.notify(message);
+        if (colleague == colleague1) {
+            colleague2.notify(message);
         } else {
-            _colleague1.notify(message);
+            colleague1.notify(message);
         }
     }
 }
