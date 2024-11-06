@@ -15,7 +15,7 @@ public class App
         Context context = new Context();
 
         // Usually a tree
-        List<AbstractExpression> list = new ArrayList();
+        List<AbstractExpression> list = new ArrayList<>();
 
         // Populate 'abstract syntax tree'
         list.add(new TerminalExpression());

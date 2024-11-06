@@ -10,15 +10,14 @@ public class App
     public static void main( String[] args )
     {
         // Encapsulate an algorithm inside a class
-
         Context context;
 
         context = new Context(new ConcreteStrategyA());
-        context.ContextInterface();
+        context.contextInterface();
         context = new Context(new ConcreteStrategyB());
-        context.ContextInterface();
+        context.contextInterface();
         context = new Context(new ConcreteStrategyC());
-        context.ContextInterface();
+        context.contextInterface();
     }
 }
 
@@ -49,14 +48,14 @@ class ConcreteStrategyC extends Strategy {
 
 class Context
 {
-    private Strategy strategy;
+    private final Strategy strategy;
 
     public Context(Strategy strategy)
     {
         this.strategy = strategy;
     }
 
-    public void ContextInterface()
+    public void contextInterface()
     {
         strategy.algorithmInterface();
     }

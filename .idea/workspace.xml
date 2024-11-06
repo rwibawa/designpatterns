@@ -4,9 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d04ceda-b72f-4166-8c90-254ea50b1acb" name="Changes" comment="Completed the Creational Design Patterns:&#10;* add Builder pattern.&#10;* add Prototype pattern.&#10;* add Composite pattern.&#10;* add some other Singleton patterns.">
+    <list default="true" id="0d04ceda-b72f-4166-8c90-254ea50b1acb" name="Changes" comment="* add Table of Content">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/command/App2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/interpreter/App2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/observer/App2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/strategy/App2.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/templatemethod/App2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/command/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/command/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/interpreter/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/interpreter/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/iterator/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/iterator/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/mediator/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/mediator/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/memento/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/memento/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/observer/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/observer/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/state/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/state/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/strategy/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/strategy/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/templatemethod/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/templatemethod/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/visitor/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/visitor/App.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,6 +74,18 @@
     "ACTIVE_CLOUD_PROJECT_NUMBER": "190250776566",
     "Application.App.executor": "Run",
     "Application.App2.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.chainofresponsibility.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.command.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.interpreter.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.interpreter.App2.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.mediator.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.memento.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.observer.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.state.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.strategy.App2.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.templatemethod.App.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.templatemethod.App2.executor": "Run",
+    "Application.com.avisow.designpatterns.behavioralpatterns.visitor.App.executor": "Run",
     "Application.com.avisow.designpatterns.creationalpatterns.abstractfactory.App.executor": "Run",
     "Application.com.avisow.designpatterns.creationalpatterns.builder.App.executor": "Run",
     "Application.com.avisow.designpatterns.creationalpatterns.factorymethod.App.executor": "Run",
@@ -83,13 +110,13 @@
       <recent name="com.avisow.designpatterns.creationalpatterns.singleton" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.com.avisow.designpatterns.creationalpatterns.singleton.App">
+  <component name="RunManager" selected="Application.com.avisow.designpatterns.behavioralpatterns.visitor.App">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.prototype.App" />
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.behavioralpatterns.strategy.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.prototype.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.behavioralpatterns.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -97,12 +124,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.avisow.designpatterns.creationalpatterns.abstractfactory.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.abstractfactory.App" />
+    <configuration name="com.avisow.designpatterns.behavioralpatterns.strategy.App2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.behavioralpatterns.strategy.App2" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.abstractfactory.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.behavioralpatterns.strategy.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -110,12 +137,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.avisow.designpatterns.creationalpatterns.builder.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.builder.App" />
+    <configuration name="com.avisow.designpatterns.behavioralpatterns.templatemethod.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.behavioralpatterns.templatemethod.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.builder.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.behavioralpatterns.templatemethod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -123,12 +150,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.avisow.designpatterns.creationalpatterns.factorymethod.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.factorymethod.App" />
+    <configuration name="com.avisow.designpatterns.behavioralpatterns.templatemethod.App2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.behavioralpatterns.templatemethod.App2" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.factorymethod.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.behavioralpatterns.templatemethod.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -136,12 +163,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="com.avisow.designpatterns.creationalpatterns.singleton.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.creationalpatterns.singleton.App" />
+    <configuration name="com.avisow.designpatterns.behavioralpatterns.visitor.App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.avisow.designpatterns.behavioralpatterns.visitor.App" />
       <module name="designpatterns" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.avisow.designpatterns.creationalpatterns.singleton.*" />
+          <option name="PATTERN" value="com.avisow.designpatterns.behavioralpatterns.visitor.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -151,11 +178,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.singleton.App" />
+        <item itemvalue="Application.com.avisow.designpatterns.behavioralpatterns.visitor.App" />
+        <item itemvalue="Application.com.avisow.designpatterns.behavioralpatterns.templatemethod.App2" />
+        <item itemvalue="Application.com.avisow.designpatterns.behavioralpatterns.templatemethod.App" />
+        <item itemvalue="Application.com.avisow.designpatterns.behavioralpatterns.strategy.App2" />
         <item itemvalue="Application.App" />
-        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.builder.App" />
-        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.abstractfactory.App" />
-        <item itemvalue="Application.com.avisow.designpatterns.creationalpatterns.factorymethod.App" />
       </list>
     </recent_temporary>
   </component>
@@ -216,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1730837641559</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="* add Table of Content">
+      <option name="closed" value="true" />
+      <created>1730839492086</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1730839492086</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -226,7 +261,8 @@
     <MESSAGE value="* project clean-up.&#10;* add .gitignore." />
     <MESSAGE value="Completed the Structural Design Patterns:&#10;* add Adapter pattern.&#10;* add Bridge pattern.&#10;* add Composite pattern.&#10;* add Decorator pattern.&#10;* add Flyweight pattern." />
     <MESSAGE value="Completed the Creational Design Patterns:&#10;* add Builder pattern.&#10;* add Prototype pattern.&#10;* add Composite pattern.&#10;* add some other Singleton patterns." />
-    <option name="LAST_COMMIT_MESSAGE" value="Completed the Creational Design Patterns:&#10;* add Builder pattern.&#10;* add Prototype pattern.&#10;* add Composite pattern.&#10;* add some other Singleton patterns." />
+    <MESSAGE value="* add Table of Content" />
+    <option name="LAST_COMMIT_MESSAGE" value="* add Table of Content" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -240,6 +276,11 @@
           <url>file://$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/creationalpatterns/prototype/App.java</url>
           <line>13</line>
           <option name="timeStamp" value="2" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/avisow/designpatterns/behavioralpatterns/interpreter/App2.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
